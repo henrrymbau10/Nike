@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Navbar } from '../../Components/Navbar/Navbar'
 import getProductById from "../../Functions/getProductById"
+import { useCarritoContext } from "../../Contexts/CarritoContext"
 import './Producto.scss'
+
 
 export const Producto = () => {
     const { id } = useParams();
     console.log(id)
     const [productInfo, setProductInfo] = useState(null);
+    const { carrito, setCarrito } = useCarritoContext();
     useEffect(() => {
         async function getProductInfo() {
             const product = await getProductById(id)
@@ -15,6 +18,11 @@ export const Producto = () => {
         }
         getProductInfo();
     }, [id]);
+
+    function addToCart() {
+        setCarrito([...carrito, productInfo])
+    }
+
 
     return (
         <div className="producto">
@@ -30,7 +38,7 @@ export const Producto = () => {
                     <h3>{productInfo?.name}</h3>
                     <p>{productInfo?.price}</p>
                     <div className="producto__container__right__buttons">
-                        <button className="producto__container__right__buttons__cart">Añadir a la cesta</button>
+                        <button onClick={addToCart} className="producto__container__right__buttons__cart">Añadir a la cesta</button>
                         <button className="producto__container__right__buttons__fav">Comprar ahora</button>
                     </div>
                 </div>

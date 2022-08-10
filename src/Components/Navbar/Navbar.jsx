@@ -4,6 +4,7 @@ import './Navbar.scss'
 import { FiSearch } from 'react-icons/fi';
 import { AiOutlineHeart, AiOutlineShopping } from 'react-icons/ai';
 import Logo from '../../../public/Assets/Icons/Nike-Logo.svg'
+import { Link } from "react-router-dom"
 
 export const Navbar = () => {
   return (
@@ -24,7 +25,9 @@ export const Navbar = () => {
         </div>
         <div className="navbar__container__icons">
           <AiOutlineHeart />
-          <AiOutlineShopping />
+          <Link to="/carrito">
+            <AiOutlineShopping />
+          </Link>
         </div>
       </div>
     </div>

@@ -1,9 +1,11 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useContext, createContext } from 'react'
 
 export const CarritoContext = createContext();
 
+// eslint-disable-next-line react/prop-types
 export const CarritoContextProvider = ({ children }) => {
-    const [carrito, setCarrito] = useState("gola");
+    const [carrito, setCarrito] = useState([]);
     return (
         <CarritoContext.Provider value={{ carrito, setCarrito }}>
             {children}
