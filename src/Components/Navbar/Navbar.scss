@@ -1,0 +1,46 @@
+.navbar {
+    background-color: white;
+    width: 100%;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 3rem;
+
+        &__logo {
+            img {
+                width: 75px;
+            }
+        }
+
+        &__list {
+            display: flex;
+            justify-content: space-around;
+
+            li {
+                padding: 0 1rem;
+            }
+        }
+
+        &__search {
+            background-color: #E5E4E4;
+            display: flex;
+            align-items: center;
+            border-radius: 15px;
+            padding: .5rem 1rem;
+
+            input {
+                background: transparent;
+                margin: 0 0 0 1rem;
+            }
+        }
+
+        &__icons {
+            svg {
+                margin: 0 .5rem;
+                height: 20px;
+            }
+        }
+    }
+}
